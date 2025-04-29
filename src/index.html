@@ -1,13 +1,53 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-100">
 <head>
   <meta charset="utf-8">
-  <title>LanguageStories</title>
+
+  <!--suppress HtmlWrongAttributeValue -->
+  <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
+  <!--suppress HtmlWrongAttributeValue -->
+  <meta http-equiv="Pragma" content="no-cache">
+
+  <title>Language</title>
+
   <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .footer {
+      margin-top: auto;
+      padding: 1rem 0;
+      background-color: #f8f9fa;
+      border-top: 1px solid #e7e7e7;
+    }
+  </style>
 </head>
-<body>
-  <app-root></app-root>
+<body class="d-flex flex-column h-100">
+  <app-root class="flex-grow-1"></app-root>
+
+  <footer class="footer mt-auto py-3">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col">
+          <p class="mb-0">
+            &copy; <script>document.write(new Date().getFullYear())</script>
+            <a href="https://smirnov.page" target="_blank" rel="noopener noreferrer">Artem Smirnov</a>
+          </p>
+          <p class="mb-0">
+            <a href="https://github.com/RankoR/llm-lang-stories" target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-github"></i> GitHub Repository
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

@@ -1,0 +1,47 @@
+<div *ngIf="shouldShowComponent" class="retelling-container">
+  <h3>Practice Retelling</h3>
+  <p>Try to retell the story in your own words:</p>
+
+  <div class="form-group">
+    <textarea
+      class="form-control"
+      rows="5"
+      [(ngModel)]="userRetelling"
+      placeholder="Type your retelling here..."
+      [disabled]="isChecking">
+    </textarea>
+  </div>
+
+  <div class="mt-2 mb-4">
+    <button
+      class="btn btn-primary"
+      (click)="checkRetelling()"
+      [disabled]="!isCheckButtonEnabled">
+      {{ isChecking ? 'Checking...' : 'Check' }}
+    </button>
+  </div>
+
+  <!-- Review Results -->
+  <div *ngIf="retellingReview" class="review-results mt-3">
+    <div class="card">
+      <div class="card-header bg-light">
+        <h4>Review Results</h4>
+      </div>
+      <div class="card-body">
+        <h5>Overall Review:</h5>
+        <p class="mb-4">{{ retellingReview.overall_review }}</p>
+
+        <h5>Sentence Analysis:</h5>
+        <div *ngFor="let sentence of retellingReview.sentences" class="sentence-review mb-3">
+          <div [ngClass]="getSentenceStatusClass(sentence.status)" class="d-flex align-items-start">
+            <i class="bi" [ngClass]="sentence.status === 'correct' ? 'bi-check-circle-fill' : 'bi-x-circle-fill'"></i>
+            <div class="ms-2">
+              <p class="mb-1"><strong>{{ sentence.sentence }}</strong></p>
+              <p *ngIf="sentence.review" class="mb-0">{{ sentence.review }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

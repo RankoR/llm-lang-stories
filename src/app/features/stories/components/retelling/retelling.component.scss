@@ -1,0 +1,30 @@
+.retelling-container {
+  margin-bottom: 2rem;
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.sentence-review {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+
+  &:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+}
+
+.text-success {
+  color: #28a745;
+}
+
+.text-danger {
+  color: #dc3545;
+}
+
+.bi {
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}

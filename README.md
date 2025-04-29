@@ -1,59 +1,47 @@
-# LanguageStories
+# Language Stories
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.9.
+A simple web application for language learning that uses Google's Generative AI (Gemini) to create stories in your target language and provide feedback on your retelling attempts.
 
-## Development server
+[![Language Stories Screenshot](images/lang-screen.jpg)](images/lang-screen.jpg)
 
-To start a local development server, run:
+## Disclaimer
 
-```bash
-ng serve
-```
+I'm not an Angular/TS developer, and this project was created for my own personal use within 1 day. The code may not follow best practices or be optimally structured.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Privacy
 
-## Code scaffolding
+**Important**: Your settings and API key are saved only in your browser's local storage and are not transferred or stored anywhere else. Your data stays on your device.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## How to Use
 
-```bash
-ng generate component component-name
-```
+1. **Set Up**:
+  - Enter your Gemini API key (get a free key from [Google AI Studio](https://aistudio.google.com/app/apikey))
+  - Select the LLM model you want to use
+  - Choose your learning language and native language
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+2. **Generate Content**:
+  - Enter a topic or prompt in the text input field
+  - Click "Generate text" to create a story in your learning language with translations
 
-```bash
-ng generate --help
-```
+3. **Practice**:
+  - Read the generated story in your learning language
+  - Click on specific sentences to see their translations when needed
+  - Use the retelling feature to practice writing or speaking in your learning language
+  - Get AI-powered feedback on your retelling attempts
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Development
 
 ```bash
-ng test
+# Install dependencies
+npm install
+
+# Start development server
+npm start
+
+# Build for production
+npm run build
 ```
 
-## Running end-to-end tests
+## License
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This project is licensed under the WTFPL - see [http://www.wtfpl.net/](http://www.wtfpl.net/) for details.

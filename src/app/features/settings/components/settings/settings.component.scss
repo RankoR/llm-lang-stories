@@ -1,0 +1,37 @@
+.settings-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.settings-item {
+  flex: 1;
+  min-width: 0; // Allows the flex items to shrink below their minimum content size
+
+  .dropdown {
+    width: 100%;
+
+    button {
+      width: 100%;
+      text-align: left;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .dropdown-menu {
+      width: 100%;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+  }
+}

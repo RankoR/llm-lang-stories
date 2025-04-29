@@ -1,0 +1,17 @@
+<div class="language-chooser">
+  <input
+    id="language-typeahead"
+    type="text"
+    class="form-control"
+    [(ngModel)]="model"
+    [ngbTypeahead]="search"
+    [inputFormatter]="formatter"
+    [resultFormatter]="formatter"
+    (focus)="focus$.next($any($event).target.value)"
+    (click)="click$.next($any($event).target.value)"
+    (selectItem)="onSelectionChange($event.item)"
+    #instance="ngbTypeahead"
+    placeholder="Select language"
+    aria-label="Select language"
+  />
+</div>

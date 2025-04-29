@@ -1,0 +1,147 @@
+<div class="row">
+  <div class="col-12">
+    <div class="settings-container">
+      <div class="settings-item mb-2">
+        <!-- Model and API Key in one section -->
+        <div class="mb-2">
+          <label class="form-label">
+            LLM Model
+            <i class="bi bi-question-circle-fill text-muted ms-1"
+               [ngbPopover]="llmModelContent"
+               popoverTitle="LLM Model"
+               placement="bottom"></i>
+            <ng-template #llmModelContent>
+              Select the AI model to use for generating content
+            </ng-template>
+          </label>
+          <div class="dropdown" ngbDropdown>
+            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="llmModelDropdown"
+                    ngbDropdownToggle>
+              {{ getSelectedModelName() }}
+            </button>
+            <div class="dropdown-menu" ngbDropdownMenu aria-labelledby="llmModelDropdown">
+              <button
+                *ngFor="let model of llmModels"
+                class="dropdown-item"
+                ngbDropdownItem
+                (click)="onModelSelect(model.id)"
+                [class.active]="selectedModelId === model.id"
+              >
+                {{ model.name }}
+              </button>
+              <div class="dropdown-divider" *ngIf="selectedModelId"></div>
+              <button
+                *ngIf="selectedModelId"
+                class="dropdown-item text-danger"
+                ngbDropdownItem
+                (click)="clearModelSelection()"
+              >
+                Clear selection
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label class="form-label">
+            Gemini API Key
+            <i class="bi bi-question-circle-fill text-muted ms-1"
+               [ngbPopover]="geminiApiKeyContent"
+               popoverTitle="Gemini API Key"
+               placement="bottom"></i>
+            <ng-template #geminiApiKeyContent>
+              Enter your Gemini API key to enable AI features.
+              <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer">
+                Get your free API key from Google AI Studio <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+              <br/>
+              <strong>Stored only in your browser.</strong>
+            </ng-template>
+          </label>
+          <div class="input-group">
+            <input
+              type="{{ hideApiKey ? 'password' : 'text' }}"
+              class="form-control form-control-sm"
+              placeholder="Enter your Gemini API Key"
+              aria-label="LLM API Key"
+              [(ngModel)]="llmApiKey"
+              (ngModelChange)="onLlmApiKeyChange($event)"
+            >
+            <button
+              class="btn btn-sm btn-outline-secondary"
+              type="button"
+              (click)="toggleApiKeyVisibility()"
+            >
+              <i [class]="hideApiKey ? 'bi bi-eye-fill' : 'bi bi-eye-slash-fill'"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-item mb-2">
+        <div class="mb-2">
+          <label class="form-label">
+            Learning Language
+            <i class="bi bi-question-circle-fill text-muted ms-1"
+               [ngbPopover]="learningLanguageContent"
+               popoverTitle="Learning Language"
+               placement="bottom"></i>
+            <ng-template #learningLanguageContent>
+              Select the language you want to learn
+            </ng-template>
+          </label>
+          <app-language-chooser
+            [selectedLanguage]="learningLanguage"
+            (languageSelected)="onLearningLanguageSelect($event)"
+          ></app-language-chooser>
+        </div>
+
+        <div class="mb-2">
+          <label class="form-label">
+            Native Language
+            <i class="bi bi-question-circle-fill text-muted ms-1"
+               [ngbPopover]="nativeLanguageContent"
+               popoverTitle="Native Language"
+               placement="bottom"></i>
+            <ng-template #nativeLanguageContent>
+              Select your native or fluent language
+            </ng-template>
+          </label>
+          <app-language-chooser
+            [selectedLanguage]="nativeLanguage"
+            (languageSelected)="onNativeLanguageSelect($event)"
+          ></app-language-chooser>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="row mt-1">
+  <div class="col">
+    <div>
+      <button
+        type="button"
+        class="btn btn-sm btn-outline-primary"
+        (click)="collapse.toggle()"
+        [attr.aria-expanded]="!isCollapsed"
+        aria-controls="collapseExample"
+      >
+        <i class="bi bi-pencil-fill"></i> Edit text task
+      </button>
+    </div>
+    <div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
+      <div class="card">
+        <div class="card-body">
+          <textarea
+            class="form-control form-control-sm"
+            rows="3"
+            [(ngModel)]="textInput"
+            (ngModelChange)="onTextInputChange($event)"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

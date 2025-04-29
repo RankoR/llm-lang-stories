@@ -1,0 +1,43 @@
+<!-- Settings -->
+<div class="row">
+  <div class="col-12">
+    <app-settings (textInputChange)="onTextInputChange($event)"></app-settings>
+  </div>
+</div>
+
+<!-- Generate content button -->
+<div class="row mt-2">
+  <div class="col-12">
+    <button
+      class="btn btn-primary"
+      (click)="generateStory()"
+      [disabled]="isGenerating || !areSettingsValid">
+      {{ isGenerating ? 'Generating...' : 'Generate text' }}
+    </button>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="row mt-2">
+  <div class="col-12 col-lg-6">
+    <app-story-text
+      [text]="learningLanguageText"
+      [showTranslationIcons]="true"
+      (showTranslation)="onShowTranslation($event)">
+    </app-story-text>
+  </div>
+  <div class="col-12 col-lg-6">
+    <app-story-text
+      [text]="nativeLanguageText"
+      [hideText]="true"
+      [showItemIndices]="translationIndices">
+    </app-story-text>
+  </div>
+</div>
+
+<!-- Retelling -->
+<div class="row mt-2">
+  <div class="col-12">
+    <app-retelling [learningLanguageText]="learningLanguageText"></app-retelling>
+  </div>
+</div>

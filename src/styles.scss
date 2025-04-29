@@ -1,0 +1,24 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import 'bootstrap/scss/bootstrap';
+
+// In styles.scss
+.pagination {
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+}
+
+.page-item {
+  margin: 2px !important;
+}
+
+@media (max-width: 576px) {
+  .pagination {
+    margin-right: -5px !important;
+    margin-left: -5px !important;
+  }
+
+  .page-link {
+    padding: 0.4rem 0.65rem !important;
+    font-size: 0.9rem !important;
+  }
+}
