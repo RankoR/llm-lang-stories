@@ -1,5 +1,7 @@
 # Language Stories
 
+[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)
+
 A simple web application for language learning that uses Google's Generative AI (Gemini) to create stories in your target language and provide feedback on your retelling attempts.
 
 [![Language Stories Screenshot](images/lang-screen.jpg)](images/lang-screen.jpg)
