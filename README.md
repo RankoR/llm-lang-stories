@@ -4,6 +4,8 @@ A simple web application for language learning that uses Google's Generative AI 
 
 [![Language Stories Screenshot](images/lang-screen.jpg)](images/lang-screen.jpg)
 
+Try it [here](https://rankor.github.io/llm-lang-stories/)!
+
 ## Disclaimer
 
 I'm not an Angular/TS developer, and this project was created for my own personal use within 1 day. The code may not follow best practices or be optimally structured.
